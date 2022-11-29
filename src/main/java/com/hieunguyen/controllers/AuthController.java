@@ -13,29 +13,39 @@ import java.io.IOException;
 @WebServlet("/portal/login")
 public class AuthController extends HttpServlet {
   @Override
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
+    dispatcher.forward(request, response);
+  }
+
+  @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String password = request.getParameter("password");
     String userId = request.getParameter("userId");
-    int loginAttemptTimes = Integer.parseInt(request.getParameter("loginAttemptTimes"));
-    RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
+//    int loginAttemptTimes = Integer.parseInt(request.getParameter("loginAttemptTimes"));
+    System.out.println(userId);
+    System.out.println(password);
+//    System.out.println(loginAttemptTimes);
+    RequestDispatcher dispatcher;
 
     if (!UserService.isPasswordValid(password) || !UserService.isUserIdValid(userId)) {
       request.setAttribute(
           "errorMessage",
           "Authentication failed: Please try again"
       );
-
-      request.setAttribute(
-          "loginAttemptTimes",
-          0
-      );
-
+      dispatcher = request.getRequestDispatcher("/login.jsp");
       dispatcher.forward(request, response);
       return;
     }
 
     if (!UserService.isValidUser(userId, password)) {
       loginAttemptTimes += 1;
+
+      if (loginAttemptTimes == 3) {
+        dispatcher = request.getRequestDispatcher("/call-centre.jsp");
+        dispatcher.forward(request, response);
+        return;
+      }
 
       request.setAttribute(
           "errorMessage",
@@ -45,8 +55,13 @@ public class AuthController extends HttpServlet {
           "loginAttemptTimesFromServer",
           loginAttemptTimes
       );
+
+      dispatcher = request.getRequestDispatcher("/login.jsp");
       dispatcher.forward(request, response);
-      return;
+    }
+    System.out.println(UserService.isValidUser(userId, password));
+    if (UserService.isValidUser(userId, password) && loginAttemptTimes == 0) {
+      response.sendRedirect("/portal/hint-questions");
     }
   }
 }

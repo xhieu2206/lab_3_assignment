@@ -1,5 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="java.net.URLDecoder" %>
 
 <html>
 <head>
@@ -12,6 +11,19 @@
     <title>Call Centre</title>
 </head>
 
+<%--<%--%>
+<%--    // Get data from cookies--%>
+<%--    Cookie[] theCookies = request.getCookies();--%>
+
+<%--    if (theCookies != null) {--%>
+<%--        for (Cookie temp : theCookies) {--%>
+<%--            if ("myApp.loginAttemptTimes".equals(temp.getName())) {--%>
+<%--                temp.setValue("0");--%>
+<%--            }--%>
+<%--        }--%>
+<%--    }--%>
+<%--%>--%>
+
 <body>
 <h1>MyGSet Portal Call Centre</h1>
 
@@ -22,7 +34,7 @@
 
     <div class="d-flex flex-row justify-content-center">
         <h4>
-            Your account is locked because you have tried 3 times, please click <a href="#">here</a> to call our centre to unlock your account
+            Your account is locked because you have tried 3 times, please click <a href="/portal/login">here</a> to call our centre to unlock your account
         </h4>
     </div>
 </div>

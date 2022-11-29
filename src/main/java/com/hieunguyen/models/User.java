@@ -1,8 +1,8 @@
 package com.hieunguyen.models;
 
 public class User {
-  private String userId;
-  private String password;
+  private final String userId;
+  private final String password;
 
   public User(String userId, String password) {
     super();
@@ -14,15 +14,7 @@ public class User {
     return userId;
   }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
   public String getPassword() {
     return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 }

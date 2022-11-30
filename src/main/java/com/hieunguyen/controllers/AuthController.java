@@ -1,7 +1,9 @@
 package com.hieunguyen.controllers;
 
+import com.hieunguyen.models.User;
 import com.hieunguyen.services.UserService;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,10 +24,11 @@ public class AuthController extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String password = request.getParameter("password");
     String userId = request.getParameter("userId");
-//    int loginAttemptTimes = Integer.parseInt(request.getParameter("loginAttemptTimes"));
+    ServletContext context = getServletContext();
+    User user = UserService.getUserData(context);
+    int loginAttemptTimes = 0;
     System.out.println(userId);
     System.out.println(password);
-//    System.out.println(loginAttemptTimes);
     RequestDispatcher dispatcher;
 
     if (!UserService.isPasswordValid(password) || !UserService.isUserIdValid(userId)) {

@@ -2,6 +2,8 @@ package com.hieunguyen.services;
 
 import com.hieunguyen.models.User;
 
+import javax.servlet.ServletContext;
+import java.io.*;
 import java.util.Objects;
 
 public class UserService {
@@ -66,5 +68,26 @@ public class UserService {
 			}
 		}
 		return isValid;
+	}
+
+	public static User getUserData(ServletContext context) throws IOException {
+		String filename = "/WEB-INF/user.txt";
+		InputStream inputStream = context.getResourceAsStream(filename);;
+		try {
+			if (inputStream != null) {
+				InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+				BufferedReader reader = new BufferedReader(inputStreamReader);
+				String text;
+
+				while ((text = reader.readLine()) != null) {
+					System.out.println("text: " + text);
+				}
+			}
+		} catch (Exception error) {
+			error.printStackTrace();
+			inputStream.close();
+		}
+
+		return new User("userId", "password");
 	}
 }

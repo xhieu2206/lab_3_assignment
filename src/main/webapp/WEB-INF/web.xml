@@ -7,11 +7,4 @@
     <welcome-file-list>
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
-    <servlet>
-        <servlet-name>Test</servlet-name>
-        <init-param>
-            <param-name>relativePathToFile</param-name>
-            <param-value>/WEB-INF/text.txt</param-value>
-        </init-param>
-    </servlet>
 </web-app>

@@ -1,6 +1,8 @@
 package com.hieunguyen.services;
 
+import com.hieunguyen.models.LoginData;
 import com.hieunguyen.models.User;
+import com.hieunguyen.repository.UserRepository;
 
 import javax.servlet.ServletContext;
 import java.io.*;
@@ -54,40 +56,44 @@ public class UserService {
 		return isValid;
 	}
 
-	public static boolean isValidUser(String userId, String password) {
-		UserService.users[0] = new User("12345678900000000", "abcd1234");
-		UserService.users[1] = new User("12345678900000001", "ABCD1234");
-		UserService.users[2] = new User("12345678900000002", "abcdefgh1");
-		boolean isValid = false;
-		for (User tempUser: UserService.users) {
-			if (Objects.equals(tempUser.getUserId(), userId) &&
-					Objects.equals(tempUser.getPassword(), password))
-			{
-				isValid = true;
-				break;
-			}
-		}
-		return isValid;
+	public static User findUserById(String userId) throws IOException {
+		return UserRepository.findByUserId(userId);
 	}
 
-	public static User getUserData(ServletContext context) throws IOException {
-		String filename = "/WEB-INF/user.txt";
-		InputStream inputStream = context.getResourceAsStream(filename);;
-		try {
-			if (inputStream != null) {
-				InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-				BufferedReader reader = new BufferedReader(inputStreamReader);
-				String text;
+	public static boolean isValidUser(
+			User user,
+			String userId,
+			String password
+	) {
+		return (
+			Objects.equals(user.getUserId(), userId) &&
+			Objects.equals(user.getPassword(), password)
+		);
+	}
 
-				while ((text = reader.readLine()) != null) {
-					System.out.println("text: " + text);
-				}
-			}
-		} catch (Exception error) {
-			error.printStackTrace();
-			inputStream.close();
+	public static LoginData login(
+		String userId,
+		String password
+	) throws IOException {
+		User user = UserService.findUserById(userId);
+		if (user == null) {
+			return new LoginData(
+				false,
+				0,
+				false
+			);
 		}
-
-		return new User("userId", "password");
+		if (UserService.isValidUser(user, userId, password)) {
+			return new LoginData(
+				true,
+				user.getLoginAttempTimes() + 1,
+				true
+			);
+		}
+		return new LoginData(
+			false,
+			user.getLoginAttempTimes() + 1,
+			true
+		);
 	}
 }

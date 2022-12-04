@@ -35,11 +35,12 @@
                     class="login-form"
                     method="POST"
             >
+                <input type="hidden" name="userId" value="${userId}"/>
                 <p>Please answer at least one (1) of the hint question below, maximum selection is 3 questions</p>
 
                 <div class="row mb-2">
                     <div class="col-6 pe-2">
-                        <select class="form-select">
+                        <select class="form-select question" name="first_question">
                             <option selected>Open this select menu</option>
                             <option>What is your mom name?</option>
                             <option>What is your dad name?</option>
@@ -47,13 +48,13 @@
                         </select>
                     </div>
                     <div class="col-6">
-                        <input class="form-control" type="text" name="first_answer"/>
+                        <input class="form-control answer" type="text" name="first_answer"/>
                     </div>
                 </div>
 
                 <div class="row mb-2">
                     <div class="col-6 pe-2">
-                        <select class="form-select">
+                        <select class="form-select question" name="second_question">
                             <option selected>Open this select menu</option>
                             <option>What is your first school name?</option>
                             <option>What is your first teacher's name?</option>
@@ -61,13 +62,13 @@
                         </select>
                     </div>
                     <div class="col-6">
-                        <input class="form-control" type="text" name="second_answer"/>
+                        <input class="form-control answer" type="text" name="second_answer"/>
                     </div>
                 </div>
 
                 <div class="row mb-2">
                     <div class="col-6 pe-2">
-                        <select class="form-select">
+                        <select class="form-select question" name="third_question">
                             <option selected>Open this select menu</option>
                             <option>What is your favorite program language?</option>
                             <option>What is your favorite program library?</option>
@@ -75,7 +76,7 @@
                         </select>
                     </div>
                     <div class="col-6">
-                        <input class="form-control" type="text" name="third_answer"/>
+                        <input class="form-control answer" type="text" name="third_answer"/>
                     </div>
                 </div>
 
@@ -87,7 +88,7 @@
                         <label class="form-label">Old password</label>
                     </div>
                     <div class="col-6">
-                        <input class="form-control" type="password" name="old_password"/>
+                        <input class="form-control password_input" type="password" name="password"/>
                     </div>
                 </div>
 
@@ -96,7 +97,7 @@
                         <label class="form-label">New password</label>
                     </div>
                     <div class="col-6">
-                        <input class="form-control" type="password" name="new_password"/>
+                        <input class="form-control password_input" type="password" name="new_password"/>
                     </div>
                 </div>
 
@@ -105,12 +106,57 @@
                         <label class="form-label">Confirm Password</label>
                     </div>
                     <div class="col-6">
-                        <input class="form-control" type="password" name="confirm_password"/>
+                        <input class="form-control password_input" type="password" name="confirm_password"/>
                     </div>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <button id="submit-button" type="submit" class="btn btn-primary mb-3 me-3" disabled>
+                        Submit
+                    </button>
+                    <button type="reset" id="clear-button" type="reset" class="btn btn-secondary mb-3 me-3" disabled>
+                        Clear
+                    </button>
+                    <a
+                        href="/portal/login"
+                        class="btn btn-danger mb-3" disabled
+                    >
+                        Cancel
+                    </a>
                 </div>
             </form>
         </div>
     </div>
 </div>
 </body>
+
+<script>
+    let inputs = document.querySelectorAll('.password_input');
+    let buttonSend = document.getElementById('submit-button');
+    let buttonClear = document.getElementById('clear-button');
+
+    let inputValidator = {
+        "password": false,
+        "new_password": false,
+        "confirm_password": false,
+    }
+
+    inputs.forEach((input) => {
+        input.addEventListener('input', () => {
+            let name = event.target.getAttribute('name');
+            if (event.target.value.length > 0) {
+                inputValidator[name] = true;
+            } else {
+                inputValidator[name] = false;
+            }
+
+            let allTrue = Object.keys(inputValidator).every((item) => {
+                return inputValidator[item] === true
+            });
+
+            buttonSend.disabled = !allTrue;
+            buttonClear.disabled = !allTrue;
+        })
+    })
+</script>
 </html>

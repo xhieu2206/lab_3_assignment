@@ -8,9 +8,11 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 @WebServlet("/portal/reset-login-times")
-public class ResetPasswordController extends HttpServlet {
+public class ResetLoginAttemptCountController extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     UserService.resetLoginTimes();
+
+    response.sendRedirect("/portal/login");
   }
 }

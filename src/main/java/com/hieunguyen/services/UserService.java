@@ -4,8 +4,7 @@ import com.hieunguyen.models.LoginData;
 import com.hieunguyen.models.User;
 import com.hieunguyen.repository.UserRepository;
 
-import javax.servlet.ServletContext;
-import java.io.*;
+import java.util.List;
 import java.util.Objects;
 
 public class UserService {
@@ -47,10 +46,11 @@ public class UserService {
 		boolean isValid = true;
 		for (int i = 0; i < userId.length(); i++) {
 			if (
-				(int) userId.charAt(i) < 47 ||
-				(int) userId.charAt(i) > 57
+					(int) userId.charAt(i) < 47 ||
+							(int) userId.charAt(i) > 57
 			) {
 				isValid = false;
+				break;
 			}
 		}
 		return isValid;
@@ -112,5 +112,36 @@ public class UserService {
 
 	public static void resetLoginTimes() {
 		UserRepository.resetLoginAttemptTimes();
+	}
+
+	public static boolean isPasswordChanged(
+			String userId,
+			String password,
+			String newPassword,
+			String confirmPassword
+	) {
+		if (
+				!UserService.isPasswordValid(password) ||
+				!UserService.isPasswordValid(newPassword) ||
+				!UserService.isPasswordValid(confirmPassword) ||
+				!newPassword.equals(confirmPassword) ||
+						newPassword.equals(password)
+		) {
+			return false;
+		}
+
+		User user = UserService.findUserById(userId);
+
+		if (!password.equals(user.getPassword())) {
+			return false;
+		}
+
+		UserRepository.changePassword(userId, newPassword);
+
+		return true;
+	}
+
+	public static List<User> index() {
+		return UserRepository.index();
 	}
 }

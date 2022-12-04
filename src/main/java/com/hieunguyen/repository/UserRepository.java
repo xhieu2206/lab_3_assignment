@@ -2,23 +2,26 @@ package com.hieunguyen.repository;
 
 import com.google.gson.Gson;
 import com.hieunguyen.models.User;
+
+import static com.mongodb.client.model.Filters.empty;
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Updates.set;
 
 import com.mongodb.MongoException;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.*;
 import org.bson.BsonDocument;
 import org.bson.BsonInt64;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserRepository {
   static String mongoUri = "";
   static String databaseName = "funix-assignment-6";
   static String collectionName = "users";
+  static MongoCollection collection = getCollection(mongoUri, databaseName, collectionName);
 
   private static MongoCollection getCollection(
       String connectionString,
@@ -50,7 +53,6 @@ public class UserRepository {
   }
 
   public static void updateLoginAttemptTimes(String userId, int loginAttemptTimes) {
-    MongoCollection collection = getCollection(mongoUri, databaseName, collectionName);
     assert collection != null;
 
     Bson filter = eq("userId", userId);
@@ -66,7 +68,29 @@ public class UserRepository {
     );
     assert collection != null;
 
+    Bson filter = empty();
     Bson updateOperation = set("loginAttemptTimes", 0);
-    collection.updateMany(null, updateOperation);
+    collection.updateMany(filter, updateOperation);
+  }
+
+  public static void changePassword(String userId, String password) {
+    assert collection != null;
+    Bson filter = eq("userId", userId);
+    Bson updateOperation = set("password", password);
+    collection.updateOne(filter, updateOperation);
+  }
+
+  public static List<User> index() {
+    assert collection != null;
+    List<User> users = new ArrayList<>();
+
+    FindIterable<Document> iterable = collection.find();
+    Gson gson = new Gson();
+    for (Document document : iterable) {
+      System.out.println(document);
+      users.add(gson.fromJson(document.toJson(), User.class));
+    }
+
+    return users;
   }
 }

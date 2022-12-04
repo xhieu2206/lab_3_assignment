@@ -36,12 +36,22 @@ public class AuthController extends HttpServlet {
     }
 
     LoginData loginData = UserService.login(userId, password);
+
     if (loginData.isLoggedInSuccess() && loginData.getLoginAttemptTimes() == 1) {
       request.setAttribute(
           "userId",
           userId
       );
-      response.sendRedirect("/portal/hint-questions?id=" + userId);
+      response.sendRedirect("/portal/hint-questions?userId=" + userId);
+      return;
+    }
+
+    if (loginData.isLoggedInSuccess() && loginData.getLoginAttemptTimes() > 1) {
+      request.setAttribute(
+          "userId",
+          userId
+      );
+      response.sendRedirect("/portal/home?id=" + userId);
       return;
     }
 

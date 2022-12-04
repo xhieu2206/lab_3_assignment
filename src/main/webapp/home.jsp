@@ -8,11 +8,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
             integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
             crossorigin="anonymous"></script>
-    <title>MyGSet Login</title>
+    <title>MyGSet Portal Home</title>
 </head>
 
 <body>
-<h1>Login to MyGSet Portal</h1>
+<h1>MyGSet Portal Home</h1>
 
 <hr>
 
@@ -23,45 +23,14 @@
 
     <div class="d-flex flex-row justify-content-center" style="width: 75%">
         <div class="w-50 border border-dark rounded-1 m-3 p-3">
-            <p class="text-center">Enter your Single Sign-On User ID and password to login</p>
+            <p class="text-center">Hello ${userId}, </p>
 
-            <c:if test="${errorMessage != null}">
-                <p class="text-center text-danger">${errorMessage}</p>
-            </c:if>
-
-            <p class="text-center">If you have forgotten your password, <a href="/portal/index-users">Click here</a></p>
+            <p class="text-center">You have logged in successfully, now you can use all feature of MyGSet portal</p>
         </div>
 
         <div class="w-50 m-3 p-3 border border-dark rounded-1">
-            <form
-                    class="login-form"
-                    action="${pageContext.request.contextPath}/portal/login"
-                    method="POST"
-            >
-<%--                <input name="loginAttemptTimes" type="hidden" value="<%= loginAttemptTimes %>"/>--%>
-
-                <h3>MEMBER LOGIN</h3>
-                <div class="mb-3">
-                    <label class="form-label">User ID:</label>
-                    <input id="field_1" class="form-control" type="text" name="userId" maxlength="16" autocomplete="do-not-autofill"/>
-                    <div class="form-text text-danger">(Max 16 characters)</div>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Password:</label>
-                    <input id="field_2" class="form-control" type="password" name="password" maxlength="16" autocomplete="do-not-autofill"/>
-                    <div class="form-text text-danger">(Max 8 characters)</div>
-                </div>
-
-                <div class="d-flex justify-content-end">
-                    <button id="submit-button" type="submit" class="btn btn-primary mb-3 me-3" disabled>
-                        Submit
-                    </button>
-                    <button type="reset" id="clear-button" type="reset" class="btn btn-secondary mb-3" disabled>
-                        Clear
-                    </button>
-                </div>
-            </form>
+            <p>Placeholder ...</p>
+            <a href="/portal/login">Click here to logout ...</a>
         </div>
     </div>
 </div>

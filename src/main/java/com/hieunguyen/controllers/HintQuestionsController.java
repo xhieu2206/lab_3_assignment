@@ -1,5 +1,7 @@
 package com.hieunguyen.controllers;
 
+import com.hieunguyen.services.UserService;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -20,7 +22,25 @@ public class HintQuestionsController extends HttpServlet {
   }
 
   @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+  {
+    String userId = request.getParameter("userId");
+    String password = request.getParameter("password");
+    String newPassword = request.getParameter("new_password");
+    String confirmPassword = request.getParameter("confirm_password");
 
+    boolean isPasswordChanged = UserService.isPasswordChanged(userId, password, newPassword, confirmPassword);
+
+    if (!isPasswordChanged) {
+      RequestDispatcher dispatcher = request.getRequestDispatcher("/call-centre-2.jsp");
+      dispatcher.forward(request, response);
+      return;
+    }
+
+    request.setAttribute(
+        "userId",
+        userId
+    );
+    response.sendRedirect("/portal/home?id=" + userId);
   }
 }

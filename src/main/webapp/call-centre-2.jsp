@@ -21,7 +21,7 @@
 
     <div class="d-flex flex-row justify-content-center">
         <h4>
-            Your account is locked because you have tried 3 times, please click <a href="/portal/reset-login-times">here</a> to call our centre to unlock your account
+            You haven't changed your password yet, please <a href="/portal/reset-login-times">login</a> again and change your password
         </h4>
     </div>
 </div>

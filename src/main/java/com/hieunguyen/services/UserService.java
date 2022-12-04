@@ -109,4 +109,8 @@ public class UserService {
 	public static void updateLoginAttemptTimes(String userId, int loginAttemptTimes) {
 		UserRepository.updateLoginAttemptTimes(userId, loginAttemptTimes);
 	}
+
+	public static void resetLoginTimes() {
+		UserRepository.resetLoginAttemptTimes();
+	}
 }

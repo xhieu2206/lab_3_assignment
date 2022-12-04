@@ -10,9 +10,7 @@ public class HintQuestionsController extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
   {
-//    String userId = request.getParameter("userId");
-    String userId = (String) request.getAttribute("userId");
-    System.out.println("CLOG in 'doGet', value 'userId': " + userId);
+    String userId = request.getParameter("userId");
     request.setAttribute(
         "userId",
         userId

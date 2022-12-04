@@ -12,7 +12,8 @@
     <list default="true" id="278d8f16-b30a-43f8-9bff-a639635564f5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/controllers/HintQuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/controllers/HintQuestionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/controllers/HintQuestionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/controllers/HintQuestionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/controllers/ResetPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/controllers/ResetPasswordController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/models/LoginData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/models/LoginData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/repository/UserRepository.java" afterDir="false" />
@@ -202,7 +203,7 @@
       <workItem from="1669823602352" duration="7462000" />
       <workItem from="1669993056116" duration="2845000" />
       <workItem from="1670053400716" duration="14560000" />
-      <workItem from="1670150038137" duration="89000" />
+      <workItem from="1670150038137" duration="1947000" />
     </task>
     <servers />
   </component>

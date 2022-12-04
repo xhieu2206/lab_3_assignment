@@ -10,17 +10,10 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.result.UpdateResult;
 import org.bson.BsonDocument;
 import org.bson.BsonInt64;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-
-import java.io.DataInput;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
 public class UserRepository {
   static String mongoUri = "";
@@ -61,7 +54,19 @@ public class UserRepository {
     assert collection != null;
 
     Bson filter = eq("userId", userId);
-    Bson updateOperation = set("loginAttempTimes", loginAttemptTimes);
+    Bson updateOperation = set("loginAttemptTimes", loginAttemptTimes);
     collection.updateOne(filter, updateOperation);
+  }
+
+  public static void resetLoginAttemptTimes() {
+    MongoCollection collection = getCollection(
+      mongoUri,
+      databaseName,
+      collectionName
+    );
+    assert collection != null;
+
+    Bson updateOperation = set("loginAttemptTimes", 0);
+    collection.updateMany(null, updateOperation);
   }
 }

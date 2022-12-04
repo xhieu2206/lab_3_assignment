@@ -5,13 +5,13 @@ public class User {
   ObjectId _id;
   private final String userId;
   private final String password;
-  private final int loginAttempTimes;
+  private final int loginAttemptTimes;
 
-  public User(ObjectId id, String userId, String password, int loginAttempTimes) {
+  public User(ObjectId id, String userId, String password, int loginAttemptTimes) {
     this._id = id;
     this.userId = userId;
     this.password = password;
-    this.loginAttempTimes = loginAttempTimes;
+    this.loginAttemptTimes = loginAttemptTimes;
   }
 
   public String getUserId() {
@@ -23,7 +23,7 @@ public class User {
   }
 
   public int getLoginAttemptTimes() {
-    return loginAttempTimes;
+    return loginAttemptTimes;
   }
 
   @Override

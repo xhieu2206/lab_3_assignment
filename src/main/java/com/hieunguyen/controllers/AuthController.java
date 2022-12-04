@@ -41,9 +41,7 @@ public class AuthController extends HttpServlet {
           "userId",
           userId
       );
-//      response.sendRedirect("/portal/hint-questions?id=" + userId);
-      dispatcher = request.getRequestDispatcher("/portal/hint-questions");
-      dispatcher.forward(request, response);
+      response.sendRedirect("/portal/hint-questions?id=" + userId);
       return;
     }
 
@@ -72,6 +70,10 @@ public class AuthController extends HttpServlet {
     }
 
     if (!loginData.isLoggedInSuccess() && loginData.isUserIdExisted() && loginData.getLoginAttemptTimes() == 3) {
+      request.setAttribute(
+          "userId",
+          userId
+      );
       dispatcher = request.getRequestDispatcher("/call-centre.jsp");
       dispatcher.forward(request, response);
     }

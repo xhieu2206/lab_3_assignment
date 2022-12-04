@@ -12,43 +12,6 @@
     <title>MyGSet Login</title>
 </head>
 
-<%--<%--%>
-<%--    // Get data from cookies--%>
-<%--    Cookie[] theCookies = request.getCookies();--%>
-<%--    int loginAttemptTimesFromServer;--%>
-<%--    try {--%>
-<%--        loginAttemptTimesFromServer = (int)request.getAttribute("loginAttemptTimesFromServer");--%>
-<%--    } catch(Exception e) {--%>
-<%--      e.printStackTrace();--%>
-<%--        loginAttemptTimesFromServer = 0;--%>
-<%--    }--%>
-
-<%--    int loginAttemptTimes = 0;--%>
-
-<%--    if (theCookies != null) {--%>
-<%--        boolean foundCookie = false;--%>
-<%--        for (Cookie temp : theCookies) {--%>
-<%--            if ("myApp.loginAttemptTimes".equals(temp.getName())) {--%>
-<%--                foundCookie = true;--%>
-<%--                loginAttemptTimes = Integer.parseInt(URLDecoder.decode(temp.getValue(), "UTF-8"));--%>
-<%--            }--%>
-<%--        }--%>
-
-<%--        if (!foundCookie) {--%>
-<%--            Cookie theCookie = new Cookie("myApp.loginAttemptTimes", "0");--%>
-<%--            theCookie.setMaxAge(60 * 60 * 24 * 365);--%>
-<%--            response.addCookie(theCookie);--%>
-<%--        }--%>
-
-<%--        if (loginAttemptTimesFromServer > 0) {--%>
-<%--            Cookie theCookie = new Cookie("myApp.loginAttemptTimes", String.valueOf(loginAttemptTimesFromServer));--%>
-<%--            theCookie.setMaxAge(60 * 60 * 24 * 365);--%>
-<%--            response.addCookie(theCookie);--%>
-<%--            loginAttemptTimes = loginAttemptTimesFromServer;--%>
-<%--        }--%>
-<%--    }--%>
-<%--%>--%>
-
 <body>
 <h1>Login to MyGSet Portal</h1>
 

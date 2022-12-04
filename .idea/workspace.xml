@@ -10,13 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="278d8f16-b30a-43f8-9bff-a639635564f5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/servlet_assignment_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/servlet_assignment_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/controllers/HintQuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/controllers/HintQuestionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/models/LoginData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/models/LoginData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/call-centre.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/call-centre.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/create-hint-question.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/create-hint-question.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,10 +71,11 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.applicationServers&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;
   }
 }</component>
   <component name="RunDashboard">
@@ -99,7 +103,8 @@
       </method>
     </configuration>
     <configuration name="Tomcat local" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.69" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11">
-      <option name="UPDATING_POLICY" value="restart-server" />
+      <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="servlet_assignment:war exploded">
           <settings>
@@ -196,6 +201,8 @@
       <updated>1669823600527</updated>
       <workItem from="1669823602352" duration="7462000" />
       <workItem from="1669993056116" duration="2845000" />
+      <workItem from="1670053400716" duration="14560000" />
+      <workItem from="1670150038137" duration="89000" />
     </task>
     <servers />
   </component>

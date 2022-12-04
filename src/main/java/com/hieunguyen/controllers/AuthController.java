@@ -1,10 +1,8 @@
 package com.hieunguyen.controllers;
 
 import com.hieunguyen.models.LoginData;
-import com.hieunguyen.models.User;
 import com.hieunguyen.services.UserService;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,9 +32,20 @@ public class AuthController extends HttpServlet {
       );
       dispatcher = request.getRequestDispatcher("/login.jsp");
       dispatcher.forward(request, response);
+      return;
     }
 
     LoginData loginData = UserService.login(userId, password);
+    if (loginData.isLoggedInSuccess() && loginData.getLoginAttemptTimes() == 1) {
+      request.setAttribute(
+          "userId",
+          userId
+      );
+//      response.sendRedirect("/portal/hint-questions?id=" + userId);
+      dispatcher = request.getRequestDispatcher("/portal/hint-questions");
+      dispatcher.forward(request, response);
+      return;
+    }
 
     if (!loginData.isUserIdExisted()) {
       request.setAttribute(
@@ -45,14 +54,25 @@ public class AuthController extends HttpServlet {
       );
       dispatcher = request.getRequestDispatcher("/login.jsp");
       dispatcher.forward(request, response);
+      return;
     }
 
-    if (!loginData.isLoggedInSuccess() && loginData.isUserIdExisted()) {
+    if (
+      !loginData.isLoggedInSuccess() &&
+      loginData.isUserIdExisted()
+      && loginData.getLoginAttemptTimes() < 3
+    ) {
       request.setAttribute(
           "errorMessage",
-          "Authentication failed: Please try again"
+          "invalid User ID/Password. Number of attempts left " + loginData.getLoginAttemptTimes()
       );
       dispatcher = request.getRequestDispatcher("/login.jsp");
+      dispatcher.forward(request, response);
+      return;
+    }
+
+    if (!loginData.isLoggedInSuccess() && loginData.isUserIdExisted() && loginData.getLoginAttemptTimes() == 3) {
+      dispatcher = request.getRequestDispatcher("/call-centre.jsp");
       dispatcher.forward(request, response);
     }
   }

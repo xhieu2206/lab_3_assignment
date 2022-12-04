@@ -22,4 +22,9 @@ public class LoginData {
   public boolean isUserIdExisted() {
     return isUserIdExisted;
   }
+
+  @Override
+  public String toString() {
+    return this.isLoggedInSuccess() + " " + this.loginAttemptTimes + " " + this.isUserIdExisted;
+  }
 }

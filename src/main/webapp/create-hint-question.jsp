@@ -9,25 +9,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
             integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
             crossorigin="anonymous"></script>
-    <title>MyGSet Login</title>
+    <title>MyGSet Set hint question</title>
 </head>
-
-<%
-    // Get data from cookies
-    Cookie[] theCookies = request.getCookies();
-
-    if (theCookies != null) {
-        for (Cookie temp : theCookies) {
-            if ("myApp.loginAttemptTimes".equals(temp.getName())) {
-                temp.setValue("0");
-            }
-        }
-    }
-%>
 
 <body>
 <h1>Set hint questions</h1>
-
 <hr>
 
 <div class="d-flex flex-column align-items-center">
@@ -36,8 +22,12 @@
     </div>
 
     <div class="d-flex flex-row justify-content-center" style="width: 75%">
-        <div class="w-50 border border-dark rounded-1 m-3 p-3">
-            <img src="https://www.91-cdn.com/hub/wp-content/uploads/2022/03/Best-keyboards-for-typing-feature-image.jpg" alt="keyboard" />
+        <div class="w-25 border border-dark rounded-1 m-3 p-3">
+            <img
+                    class="img-thumbnail"
+                    src="https://www.91-cdn.com/hub/wp-content/uploads/2022/03/Best-keyboards-for-typing-feature-image.jpg"
+                    alt="keyboard"
+            />
         </div>
 
         <div class="w-50 m-3 p-3 border border-dark rounded-1">
@@ -45,7 +35,79 @@
                     class="login-form"
                     method="POST"
             >
+                <p>Please answer at least one (1) of the hint question below, maximum selection is 3 questions</p>
 
+                <div class="row mb-2">
+                    <div class="col-6 pe-2">
+                        <select class="form-select">
+                            <option selected>Open this select menu</option>
+                            <option>What is your mom name?</option>
+                            <option>What is your dad name?</option>
+                            <option>What is your sister name?</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <input class="form-control" type="text" name="first_answer"/>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-6 pe-2">
+                        <select class="form-select">
+                            <option selected>Open this select menu</option>
+                            <option>What is your first school name?</option>
+                            <option>What is your first teacher's name?</option>
+                            <option>What is your pet name?</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <input class="form-control" type="text" name="second_answer"/>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-6 pe-2">
+                        <select class="form-select">
+                            <option selected>Open this select menu</option>
+                            <option>What is your favorite program language?</option>
+                            <option>What is your favorite program library?</option>
+                            <option>What is your favorite program framework?</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <input class="form-control" type="text" name="third_answer"/>
+                    </div>
+                </div>
+
+                <p>Please key in your old password and new password. The new password must be difference from the old
+                    password/p>
+
+                <div class="row mb-2">
+                    <div class="col-6 pe-2 text-end">
+                        <label class="form-label">Old password</label>
+                    </div>
+                    <div class="col-6">
+                        <input class="form-control" type="password" name="old_password"/>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-6 pe-2 text-end">
+                        <label class="form-label">New password</label>
+                    </div>
+                    <div class="col-6">
+                        <input class="form-control" type="password" name="new_password"/>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-6 pe-2 text-end">
+                        <label class="form-label">Confirm Password</label>
+                    </div>
+                    <div class="col-6">
+                        <input class="form-control" type="password" name="confirm_password"/>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

@@ -3,12 +3,14 @@ package com.hieunguyen.repository;
 import com.google.gson.Gson;
 import com.hieunguyen.models.User;
 import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Updates.set;
 
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.result.UpdateResult;
 import org.bson.BsonDocument;
 import org.bson.BsonInt64;
 import org.bson.Document;
@@ -21,6 +23,10 @@ import java.util.List;
 import java.util.Objects;
 
 public class UserRepository {
+  static String mongoUri = "";
+  static String databaseName = "funix-assignment-6";
+  static String collectionName = "users";
+
   private static MongoCollection getCollection(
       String connectionString,
       String databaseName,
@@ -38,20 +44,24 @@ public class UserRepository {
     }
   }
 
-  public static User findByUserId(String userId) throws IOException {
-    String mongoUri = "";
-    String databaseName = "funix-assignment-6";
-    String collectionName = "users";
-
+  public static User findByUserId(String userId) {
     MongoCollection collection = getCollection(mongoUri, databaseName, collectionName);
     assert collection != null;
 
-    Document docs = (Document) collection
+    Document doc = (Document) collection
       .find(eq("userId", userId))
       .first();
-    System.out.println(docs);
     Gson gson = new Gson();
-    if (docs == null) return null;
-    return gson.fromJson(docs.toJson(), User.class);
+    assert doc != null;
+    return gson.fromJson(doc.toJson(), User.class);
+  }
+
+  public static void updateLoginAttemptTimes(String userId, int loginAttemptTimes) {
+    MongoCollection collection = getCollection(mongoUri, databaseName, collectionName);
+    assert collection != null;
+
+    Bson filter = eq("userId", userId);
+    Bson updateOperation = set("loginAttempTimes", loginAttemptTimes);
+    collection.updateOne(filter, updateOperation);
   }
 }

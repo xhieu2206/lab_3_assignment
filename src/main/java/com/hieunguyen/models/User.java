@@ -22,7 +22,12 @@ public class User {
     return password;
   }
 
-  public int getLoginAttempTimes() {
+  public int getLoginAttemptTimes() {
     return loginAttempTimes;
+  }
+
+  @Override
+  public String toString() {
+    return this.userId + ", userId: " + this.getUserId() + ", password: " + this.getPassword() + ", LoginAttemptTimes: " + this.getLoginAttemptTimes();
   }
 }

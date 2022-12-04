@@ -56,7 +56,7 @@ public class UserService {
 		return isValid;
 	}
 
-	public static User findUserById(String userId) throws IOException {
+	public static User findUserById(String userId) {
 		return UserRepository.findByUserId(userId);
 	}
 
@@ -74,7 +74,7 @@ public class UserService {
 	public static LoginData login(
 		String userId,
 		String password
-	) throws IOException {
+	) {
 		User user = UserService.findUserById(userId);
 		if (user == null) {
 			return new LoginData(
@@ -83,17 +83,30 @@ public class UserService {
 				false
 			);
 		}
+		if (user.getLoginAttemptTimes() == 3) {
+			return new LoginData(
+					false,
+					3,
+					true
+			);
+		}
 		if (UserService.isValidUser(user, userId, password)) {
+			UserService.updateLoginAttemptTimes(userId, 0);
 			return new LoginData(
 				true,
-				user.getLoginAttempTimes() + 1,
+				user.getLoginAttemptTimes() + 1,
 				true
 			);
 		}
+		UserService.updateLoginAttemptTimes(userId, user.getLoginAttemptTimes() + 1);
 		return new LoginData(
 			false,
-			user.getLoginAttempTimes() + 1,
+			user.getLoginAttemptTimes() + 1,
 			true
 		);
+	}
+
+	public static void updateLoginAttemptTimes(String userId, int loginAttemptTimes) {
+		UserRepository.updateLoginAttemptTimes(userId, loginAttemptTimes);
 	}
 }

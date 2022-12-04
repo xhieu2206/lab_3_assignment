@@ -11,19 +11,6 @@
     <title>Call Centre</title>
 </head>
 
-<%--<%--%>
-<%--    // Get data from cookies--%>
-<%--    Cookie[] theCookies = request.getCookies();--%>
-
-<%--    if (theCookies != null) {--%>
-<%--        for (Cookie temp : theCookies) {--%>
-<%--            if ("myApp.loginAttemptTimes".equals(temp.getName())) {--%>
-<%--                temp.setValue("0");--%>
-<%--            }--%>
-<%--        }--%>
-<%--    }--%>
-<%--%>--%>
-
 <body>
 <h1>MyGSet Portal Call Centre</h1>
 

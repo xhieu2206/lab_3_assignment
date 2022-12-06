@@ -11,21 +11,14 @@
   <component name="ChangeListManager">
     <list default="true" id="278d8f16-b30a-43f8-9bff-a639635564f5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/controllers/HintQuestionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/controllers/HintQuestionsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/models/LoginData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/models/LoginData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hieunguyen/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hieunguyen/servlet_assignment/HelloServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/create-hint-question.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/create-hint-question.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExportTestResults" outputFolder="$PROJECT_DIR$" openResultsInEditor="true" userTempatePath="" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -118,22 +111,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HomeControllerTest.testDoget_ReturnHomePage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="servlet_assignment" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.hieunguyen.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.hieunguyen.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.hieunguyen.controllers.HomeControllerTest" />
-      <option name="METHOD_NAME" value="testDoget_ReturnHomePage" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ResetLoginAttemptCountControllerTest.testDoGet_ReturnLoginPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="servlet_assignment" />
       <extension name="coverage">
@@ -162,6 +139,20 @@
       <option name="MAIN_CLASS_NAME" value="com.hieunguyen.controllers.UsersControllerTest" />
       <option name="METHOD_NAME" value="testDoGet_ReturnListOfUser" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.hieunguyen in servlet_assignment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="servlet_assignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hieunguyen.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hieunguyen" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -199,11 +190,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.com.hieunguyen in servlet_assignment" />
         <item itemvalue="JUnit.HintQuestionsControllerTest.testDoGet_ReturnHintQuestionPage" />
         <item itemvalue="JUnit.UsersControllerTest.testDoGet_ReturnListOfUser" />
         <item itemvalue="JUnit.ResetLoginAttemptCountControllerTest.testDoGet_ReturnLoginPage" />
         <item itemvalue="JUnit.HomeControllerTest.testDoGet_ReturnHomePage" />
-        <item itemvalue="JUnit.HomeControllerTest.testDoget_ReturnHomePage" />
       </list>
     </recent_temporary>
   </component>
@@ -222,7 +213,8 @@
       <workItem from="1670164814260" duration="353000" />
       <workItem from="1670165176445" duration="11206000" />
       <workItem from="1670252265138" duration="4446000" />
-      <workItem from="1670292114305" duration="10243000" />
+      <workItem from="1670292114305" duration="10924000" />
+      <workItem from="1670304210807" duration="1594000" />
     </task>
     <servers />
   </component>

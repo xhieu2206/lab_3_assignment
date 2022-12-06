@@ -88,7 +88,7 @@
                         <label class="form-label">Old password</label>
                     </div>
                     <div class="col-6">
-                        <input class="form-control password_input" type="password" name="password"/>
+                        <input class="form-control password_input" maxlength="8" minlength="8" type="password" name="password"/>
                     </div>
                 </div>
 
@@ -97,7 +97,7 @@
                         <label class="form-label">New password</label>
                     </div>
                     <div class="col-6">
-                        <input class="form-control password_input" type="password" name="new_password"/>
+                        <input class="form-control password_input" maxlength="8" minlength="8" type="password" name="new_password"/>
                     </div>
                 </div>
 
@@ -106,7 +106,7 @@
                         <label class="form-label">Confirm Password</label>
                     </div>
                     <div class="col-6">
-                        <input class="form-control password_input" type="password" name="confirm_password"/>
+                        <input class="form-control password_input" maxlength="8" minlength="8" type="password" name="confirm_password"/>
                     </div>
                 </div>
 

@@ -41,6 +41,6 @@ public class HintQuestionsController extends HttpServlet {
         "userId",
         userId
     );
-    response.sendRedirect("/portal/home?id=" + userId);
+    response.sendRedirect("/portal/home?userId=" + userId);
   }
 }

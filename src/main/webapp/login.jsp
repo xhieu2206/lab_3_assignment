@@ -38,18 +38,16 @@
                     action="${pageContext.request.contextPath}/portal/login"
                     method="POST"
             >
-<%--                <input name="loginAttemptTimes" type="hidden" value="<%= loginAttemptTimes %>"/>--%>
-
                 <h3>MEMBER LOGIN</h3>
                 <div class="mb-3">
                     <label class="form-label">User ID:</label>
-                    <input id="field_1" class="form-control" type="text" name="userId" maxlength="16" autocomplete="do-not-autofill"/>
+                    <input id="field_1" class="form-control" type="text" name="userId" maxlength="16" minlength="16" autocomplete="do-not-autofill"/>
                     <div class="form-text text-danger">(Max 16 characters)</div>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Password:</label>
-                    <input id="field_2" class="form-control" type="password" name="password" maxlength="16" autocomplete="do-not-autofill"/>
+                    <input id="field_2" class="form-control" type="password" name="password" maxlength="8" minlength="8" autocomplete="do-not-autofill"/>
                     <div class="form-text text-danger">(Max 8 characters)</div>
                 </div>
 

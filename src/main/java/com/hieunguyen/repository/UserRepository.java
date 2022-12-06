@@ -48,7 +48,9 @@ public class UserRepository {
       .find(eq("userId", userId))
       .first();
     Gson gson = new Gson();
-    assert doc != null;
+    if (doc == null) {
+      return null;
+    }
     return gson.fromJson(doc.toJson(), User.class);
   }
 
@@ -80,6 +82,13 @@ public class UserRepository {
     collection.updateOne(filter, updateOperation);
   }
 
+  public static void resetAllPassword() {
+    assert collection != null;
+    Bson filter = empty();
+    Bson updateOperation = set("password", "pass1111");
+    collection.updateMany(filter, updateOperation);
+  }
+
   public static List<User> index() {
     assert collection != null;
     List<User> users = new ArrayList<>();
@@ -87,7 +96,6 @@ public class UserRepository {
     FindIterable<Document> iterable = collection.find();
     Gson gson = new Gson();
     for (Document document : iterable) {
-      System.out.println(document);
       users.add(gson.fromJson(document.toJson(), User.class));
     }
 

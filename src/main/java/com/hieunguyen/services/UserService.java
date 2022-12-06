@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class UserService {
-	private static final User[] users = new User[3];
-
 	public static boolean isPasswordValid(String password) {
 		if (password.length() != 8) {
 			return false;
@@ -85,9 +83,9 @@ public class UserService {
 		}
 		if (user.getLoginAttemptTimes() == 3) {
 			return new LoginData(
-					false,
-					3,
-					true
+				false,
+				3,
+				true
 			);
 		}
 		if (UserService.isValidUser(user, userId, password)) {
@@ -131,6 +129,10 @@ public class UserService {
 		}
 
 		User user = UserService.findUserById(userId);
+
+		if (user == null) {
+			return false;
+		}
 
 		if (!password.equals(user.getPassword())) {
 			return false;

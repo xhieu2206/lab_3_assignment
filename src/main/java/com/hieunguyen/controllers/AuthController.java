@@ -51,7 +51,7 @@ public class AuthController extends HttpServlet {
           "userId",
           userId
       );
-      response.sendRedirect("/portal/home?id=" + userId);
+      response.sendRedirect("/portal/home?userId=" + userId);
       return;
     }
 
